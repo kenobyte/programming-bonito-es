@@ -4,7 +4,7 @@ Este capítulo trata sobre la sintaxis del lenguaje máquina del procesador Moto
 
 Para continuar con este capítulo es imprescindible saber qué es un procesador, un registro, qué es la memoria principal, qué es un lenguaje máquina, qué son los modos de direccionamiento, etc.
 
-## Forma de una instrucción.
+## Formato de una instrucción.
 
 Toda instrucción tiene la siguiente sintaxis:
 
@@ -43,9 +43,15 @@ SECOND:
 
 Los tipos de argumentos que puede tener una instrucción son:
 
-* Valor inmediato de hasta 16 bits. Por ejemplo `3`.
-* Registro. Por ejemplo `r03`.
-* Campo de bits, en donde W5 es el tamaño y O5 el origen del campo de bits.
+* **Valor inmediato de hasta 16 bits.**
+
+  Puede ser en hexadecimal (por ejemplo `0x3F3`) o en decimal (por ejemplo `3`).
+
+* **Registro.**
+
+  Comienza por la letra `r`. Por ejemplo: `r03`
+
+* **Campo de bits** de la forma `W5<05>`, en donde W5 es el tamaño y O5 el origen del campo de bits.
 
   Por ejemplo, `04<20>` significa un campo de bits *desde* el bit 20 con un *tamaño* de 4. Es decir, si tenemos la siguiente cadena:
 
@@ -53,7 +59,7 @@ Los tipos de argumentos que puede tener una instrucción son:
   01010001010101001010101001000101
   ```
 
-  El campo de bits `04<20>` de dicha cadena es el señalado con asteriscos:
+  El campo de bits `04<20>` de dicha cadena es el señalado con asteriscos (los números de abajo indican la posición de cada bit):
 
   ```
             ****
@@ -62,4 +68,3 @@ Los tipos de argumentos que puede tener una instrucción son:
                20   16                    00
   ```
 
-  (Los números de abajo indican la posición)
