@@ -6,18 +6,18 @@ Los capítulos marcados con un asterisco \* utilizan lenguaje ensamblador.
 
 Este capítulo sirve de iniciación al lenguaje ensamblador 88110.
 
-1. \* **Procesador mc88110**  
-   Características del procesador 88110. Modos de redireccionamiento, juego de instrucciones, etc. propias de este procesador
+1. \* [**Características generales**](88110/general.md)  
+   Características del procesador 88110. Modos de redireccionamiento, pseudo-instrucciones.
 
-2. \* **Convenciones propias**  
-   Convenciones que se van a seguir en este libro. Segmentos de memoria, uso específico de registros.
+2. \* **[INCOMPLETO]** **[PENDIENTE DE REVISIÓN]** [**Juego de instrucciones**](88110/instruction-set.md)  
+   Juego de instrucciones completo del procesador.
 
 
 ## Level 0
 
 Programación secuencial
 
-1. **Tipos numéricos**  
+1. **[PENDIENTE DE REVISIÓN]** [**Tipos numéricos**](L0/numbers.md)  
    Cómo se manejan números en Java. De qué tipos pueden ser las variables numéricas, qué valores pueden tener.
 
    \* **Carga de variables numéricas en ensamblador**  

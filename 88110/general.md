@@ -14,7 +14,7 @@ Toda instrucción tiene la siguiente sintaxis:
 
 Los corchetes indican que es opcional. Los demás signos de puntuación son obligatorios.
 
-* `ETIQUETA` es una cadena alfanumérica que **identifica una instrucción**. Sirve para referirse a una determinada "línea" del código sin tener que recordar el número de dicha línea.
+* `ETIQUETA` es una cadena alfanumérica que identifica una instrucción. Sirve para referirse a una determinada "línea" del código sin tener que recordar el número de dicha línea.
 * `INSTRUCCIÓN` es el mnemónico de la instrucción.
 * `OPCIÓN` es una cadena que hace que la instrucción se comporte de manera diferente.
 * `ARG0`, `ARG1` y `ARG2` son los argumentos de la instrucción.
@@ -67,4 +67,50 @@ Los tipos de argumentos que puede tener una instrucción son:
                ^    ^                     ^
                20   16                    00
   ```
+
+## Pseudo-instrucciones
+
+Son instrucciones de ensamblador que no ejecutan programa. Indican *cómo* se debe generar el código.
+
+**org.** Indica en qué dirección de memoria está situada la siguiente instrucción. Por ejemplo, el código siguiente indica que la instrucción "and" está en la dirección 0x1000
+
+```
+org 0x1000
+and r02,r00,1;
+```
+
+**data.** Reserva e inicializa un conjunto de *palabras* (sectores de 4 bytes) en memoria con unos datos. La sintaxis es la siguiente:
+
+```
+data NÚMERO [, NUMERO][, NUMERO][, NUMERO]
+data "CADENA" [, "CADENA"][, "CADENA"]...
+```
+
+El número puede ser en decimal o en hexadecimal. Por ejemplo:
+
+```
+org  0x1000
+data -1, 2, 3
+data 0x2FFF
+```
+
+En la instrucción anterior se reservan las siguientes direcciones de memoria y datos:
+
+* Dirección 0x1000 a 0x1003. Dato `0xFFFFFFFF` (-1)
+* Dirección 0x1004 a 0x1007. Dato `0x00000002` (2)
+* Dirección 0x1008 a 0x100B. Dato `0x00000003` (3)
+* Dirección 0x100C a 0x100F. Dato `0x00002FFF` (0x2FFF)
+
+También se pueden inicializar cadenas de caracteres. Por ejemplo:
+
+```
+org  0x2000
+data "Hola Mundo\n"
+```
+
+Almacena en memoria:
+
+* Dirección 0x2000 a 0x2003. Dato `0x486F6C61` (Caracteres 'H', 'o', 'l', 'a')
+* Dirección 0x2004 a 0x2007. Dato `0x204D756E` (Caracteres ' ', 'M', 'u', 'n')
+* Dirección 0x2008 a 0x200B. Dato `0X646F0A00` (Caracteres 'd', 'o', '\n')
 
