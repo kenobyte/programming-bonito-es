@@ -1,6 +1,8 @@
 > **bonito**.
+
 > (Del b. lat. *boniton*)
-> 1.m. Pez teleósteo comestible, parecido al atún, pero más pequeño
+
+> 1. m. Pez teleósteo comestible, parecido al atún, pero más pequeño
 
 \- [DRAE], definición que no tiene nada que ver con el propósito de este libro.
 
